@@ -12,7 +12,7 @@ function addProblem(req, res, next) {
         throw new Notimplemented('addProblem Not Implemented')
 
     } catch (error) {
-        console.log("error in catch", error);
+
         next(error);
     }
 
