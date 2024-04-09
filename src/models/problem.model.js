@@ -1,4 +1,4 @@
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 
 const problemSchema = new mongoose.Schema({
     title: {
@@ -11,8 +11,8 @@ const problemSchema = new mongoose.Schema({
     },
     difficulty: {
         type: String,
-        enum: ['easy','medium','hard'],
-        required:[true, 'Difficulty cannot be empty'],
+        enum: ['easy', 'medium', 'hard'],
+        required: [true, 'Difficulty cannot be empty'],
         default: 'easy'
     },
     testCases: [
@@ -21,7 +21,7 @@ const problemSchema = new mongoose.Schema({
                 type: String,
                 required: true
             },
-            output:{
+            output: {
                 type: String,
                 required: true
             }
