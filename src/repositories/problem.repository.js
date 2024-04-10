@@ -7,7 +7,7 @@ class ProblemRepository {
             const problem = await Problem.create({
                 title: problemData.title,
                 description: problemData.description,
-                testCases: (problemData.testCases)? problemData.testCases: []
+                testCases: (problemData.testCases) ? problemData.testCases : []
             }
 
             );
@@ -19,6 +19,19 @@ class ProblemRepository {
             throw error;
         }
 
+    }
+
+    async getAllproblems() {
+        try {
+
+            const problems = await Problem.find({});
+            
+            return problems
+
+        } catch (error) {
+            console.log(error);
+            throw error
+        }
     }
 }
 
