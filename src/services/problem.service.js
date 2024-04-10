@@ -7,23 +7,29 @@ class ProblemService {
   }
 
   async createProblem(problemData) {
-      // 1. sanitize the markdown for description
-      problemData.description = sanitizeMarkdownContent(problemData.description)
+    // 1. sanitize the markdown for description
+    problemData.description = sanitizeMarkdownContent(problemData.description)
 
-      console.log("problemData", problemData);
-      const problem = await this.problemRepository.createProblem(problemData);
+    console.log("problemData", problemData);
+    const problem = await this.problemRepository.createProblem(problemData);
 
-      console.log("problem created", problem);
+    console.log("problem created", problem);
 
-      return problem;
+    return problem;
 
   }
-async getAllproblems(){
+  async getAllproblems() {
 
     const problems = await this.problemRepository.getAllproblems();
     return problems
+
+  }
+
+  async getProblem(problemId) {
   
-}
+    const problem = await this.problemRepository.getProblem(problemId);
+    return problem
+  }
 
 }
 

@@ -51,6 +51,21 @@ async function getProblems(req, res, next) {
 
 }
 
+async function getProblem(req, res, next) {
+    try {
+      
+        const problem = await problemService.getProblem(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            error: {},
+            message: "Successfully fetched a problem ",
+            data: problem
+        })
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 function deleteProblems(req, res) {
     return res.status(StatusCodes.NOT_IMPLEMENTED).json({ message: 'Not Implemented' });
@@ -65,6 +80,7 @@ function updateProblem(req, res) {
 module.exports = {
     addProblem,
     getProblems,
+    getProblem,
     deleteProblems,
     updateProblem,
     pingProblemController
